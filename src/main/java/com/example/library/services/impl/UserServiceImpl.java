@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new EntityNotFoundException("No user was found"));
         Book book = bookRepository.findById(bookId).orElseThrow(() -> new EntityNotFoundException("No book was found"));
             user.getBooks().add(book);
-            book.getUsers().add(user);
+        repository.save(user);
     }
 
     private Role findOrCreateRole(String roleName) {
