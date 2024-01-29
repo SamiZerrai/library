@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface AbstractService<T> {
 
-    Integer save(T dto);
+    T save(T dto);
 
     List<T> findAll();
 

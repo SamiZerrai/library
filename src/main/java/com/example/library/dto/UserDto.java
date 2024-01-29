@@ -1,5 +1,6 @@
 package com.example.library.dto;
 
+import com.example.library.models.Book;
 import com.example.library.models.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Temporal;
@@ -50,7 +51,7 @@ public class UserDto {
     @Size(min = 8, max = 16, message = "Le mot de passe doit etre entre 8 et 16 caracteres")
     private String password;
 
-    private List<BookDto> users;
+    private List<Book> books;
 
     public static UserDto fromEntity(User user) {
         //null check
@@ -61,6 +62,7 @@ public class UserDto {
                 .email(user.getEmail())
                 .birthday(user.getBirthday())
                 .password(user.getPassword())
+                .books(user.getBooks())
                 .build();
     }
 
@@ -73,6 +75,7 @@ public class UserDto {
                 .email(user.getEmail())
                 .birthday(user.getBirthday())
                 .password(user.getPassword())
+                .books(user.getBooks())
                 .build();
     }
 }

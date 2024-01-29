@@ -38,5 +38,4 @@ public class User extends AbstractEntity {
 
     @OneToOne
     private Role role;
-
 }

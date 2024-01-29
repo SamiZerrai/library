@@ -6,4 +6,6 @@ public enum Genre {
     COMICAL,
     ROMANTIC,
 
+    FANTASY
+
 }

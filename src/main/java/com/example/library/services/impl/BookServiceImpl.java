@@ -20,10 +20,11 @@ public class BookServiceImpl implements BookService {
     private ObjectsValidator<BookDto> validator;
 
     @Override
-    public Integer save(BookDto dto) {
+    public BookDto save(BookDto dto) {
         validator.validate(dto);
         Book book = BookDto.toEntity(dto);
-        return repository.save(book).getId();
+        repository.save(book);
+        return dto;
     }
 
     @Override

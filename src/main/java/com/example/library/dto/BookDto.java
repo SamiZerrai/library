@@ -18,8 +18,6 @@ import java.util.List;
 @Builder
 public class BookDto {
 
-    private Integer id;
-
     @NotNull(message = "Le titre ne doit pas etre vide")
     @NotEmpty(message = "Le titre ne doit pas etre vide")
     @NotBlank(message = "Le titre ne doit pas etre vide")
@@ -32,12 +30,10 @@ public class BookDto {
 
     private Genre genre;
 
-    private List<UserDto> user;
 
     public static BookDto fromEntity(Book book) {
         //null check
         return BookDto.builder()
-                .id(book.getId())
                 .title(book.getTitle())
                 .description(book.getDescription())
                 .genre(book.getGenre())
@@ -47,7 +43,6 @@ public class BookDto {
     public static Book toEntity(BookDto book) {
         //null check
         return Book.builder()
-                .id(book.getId())
                 .title(book.getTitle())
                 .description(book.getDescription())
                 .genre(book.getGenre())

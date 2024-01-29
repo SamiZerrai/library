@@ -18,7 +18,7 @@ public class BookController {
     private final BookService service;
 
     @PostMapping("/")
-    public ResponseEntity<Integer> save(
+    public ResponseEntity<BookDto> save(
             @RequestBody BookDto bookDto
     ) {
         return ResponseEntity.ok(service.save(bookDto));

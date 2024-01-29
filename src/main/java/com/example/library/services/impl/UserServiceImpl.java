@@ -29,10 +29,11 @@ public class UserServiceImpl implements UserService {
     private final RoleRepository roleRepository;
 
     @Override
-    public Integer save(UserDto dto) {
+    public UserDto save(UserDto dto) {
         validator.validate(dto);
         User user = UserDto.toEntity(dto);
-        return repository.save(user).getId();
+        repository.save(user);
+        return dto;
     }
 
     @Override

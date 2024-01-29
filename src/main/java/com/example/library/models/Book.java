@@ -24,4 +24,6 @@ public class Book extends AbstractEntity{
     @ManyToMany(cascade = CascadeType.ALL)
     private List<User> users;
 
+    public Book(String title, String description, Genre genre) {
+    }
 }
