@@ -7,7 +7,6 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -57,17 +56,6 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(representation);
-    }
-
-    @ExceptionHandler(BadCredentialsException.class)
-    public ResponseEntity<ExceptionRepresentation> handleBadCredentialsException() {
-        ExceptionRepresentation representation = ExceptionRepresentation.builder()
-                .errorMessage("Your email and / or password is incorrect")
-                .build();
-
-        return ResponseEntity
-                .status(HttpStatus.FORBIDDEN)
                 .body(representation);
     }
 }

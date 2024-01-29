@@ -12,8 +12,4 @@ public interface UserService extends AbstractService<UserDto> {
 
     List<UserDto> findAuthorsWithCommonBooks();
 
-    AuthenticationResponse register(UserDto user);
-
-    AuthenticationResponse authenticate(AuthenticationRequest request);
-
 }
