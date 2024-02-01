@@ -13,31 +13,30 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService service;
     private final BookService bookService;
 
-    @PostMapping("/")
+    @PostMapping("/users/add")
     public ResponseEntity<UserDto> save(
             @RequestBody UserDto userDto
     ) {
         return ResponseEntity.ok(service.save(userDto));
     }
 
-    @GetMapping("/")
+    @GetMapping("/users/all")
     public ResponseEntity<List<UserDto>> findAll() {
         return ResponseEntity.ok(service.findAll());
     }
 
-    @GetMapping("/{user-id}")
+    @GetMapping("/users/findByID/{user-id}")
     public ResponseEntity<UserDto> findById (@PathVariable("user-id") Integer userId) {
         return ResponseEntity.ok(service.findById(userId));
     }
 
-    @DeleteMapping("/{user-id}")
+    @DeleteMapping("/users/delete/{user-id}")
     public ResponseEntity<Void> delete(
             @PathVariable("user-id") Integer userId
     ) {
@@ -45,7 +44,7 @@ public class UserController {
         return ResponseEntity.accepted().build();
     }
 
-    @PostMapping("/{userId}/book/{bookId}")
+    @PostMapping("/users/{userId}/book/{bookId}")
     public ResponseEntity<Void> assignAuthorToBook(
             @PathVariable Integer bookId,
             @PathVariable Integer userId
@@ -54,7 +53,7 @@ public class UserController {
         return ResponseEntity.accepted().build();
     }
 
-    @GetMapping("/findAuthorsWithCommonBooks")
+    @GetMapping("/users/findAuthorsWithCommonBooks")
     public ResponseEntity<List<UserDto>> findAuthorsWithCommonBooks() {
         return ResponseEntity.ok(service.findAuthorsWithCommonBooks());
     }

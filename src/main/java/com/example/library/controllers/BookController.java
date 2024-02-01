@@ -17,24 +17,24 @@ public class BookController {
 
     private final BookService service;
 
-    @PostMapping("/")
+    @PostMapping("/books/add")
     public ResponseEntity<BookDto> save(
             @RequestBody BookDto bookDto
     ) {
         return ResponseEntity.ok(service.save(bookDto));
     }
 
-    @GetMapping("/")
+    @GetMapping("/books/all")
     public ResponseEntity<List<BookDto>> findAll() {
         return ResponseEntity.ok(service.findAll());
     }
 
-    @GetMapping("/{book-id}")
+    @GetMapping("/books/findById/{book-id}")
     public ResponseEntity<BookDto> findById (@PathVariable("book-id") Integer bookId) {
         return ResponseEntity.ok(service.findById(bookId));
     }
 
-    @DeleteMapping("/{book-id}")
+    @DeleteMapping("/books/delete/{book-id}")
     public ResponseEntity<Void> delete(
             @PathVariable("book-id") Integer bookId
     ) {
