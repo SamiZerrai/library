@@ -10,7 +10,6 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-
   mvc:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
