@@ -11,7 +11,7 @@ import org.springframework.web.filter.CorsFilter;
 
 import java.util.Arrays;
 
-@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
+@SpringBootApplication
 @EnableJpaAuditing
 public class LibraryApplication {
 
