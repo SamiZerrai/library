@@ -1,2 +1,8 @@
-package com.example.library.models;public enum TypeRole {
+package com.example.library.models;
+
+public enum TypeRole {
+
+    USER,
+    ADMIN
+
 }
